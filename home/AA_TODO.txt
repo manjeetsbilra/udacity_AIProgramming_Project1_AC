@@ -1,7 +1,7 @@
 Program Outline
-    Time your program (Page 5 & 6)                          # Check_images.py    #commit:23/07/2025                   # DONE    
+    Time your program (Page 5 & 6)                          # Check_images.py                   #commit:23/07/2025      # DONE    
         Use Time Module to compute program runtime              
-    Get program Inputs from the user (Page 7 & 8)
+    Get program Inputs from the user (Page 7 & 8)       #Check_images.py, get_input_args.py     #commit:23/07/2025      #DONE
         Use command line arguments to get user inputs
     Create Pet Images Labels (Page 9, 10 & 11)
         Use the pet images filenames to create labels

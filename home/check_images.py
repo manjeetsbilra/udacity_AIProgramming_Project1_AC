@@ -46,15 +46,17 @@ def main():
     # Format of time is hh:mm:ss --> 0:0:59
     
     # normal runtime ~ 5 sec --> with delay 9/10 sec --> 0:0:10
-    sleep(5) # 5 sec delay activated to see the time difference in the output
+ #   sleep(5) # 5 sec delay activated to see the time difference in the output
     
-    # DONE 1: Define get_input_args function within the file get_input_args.py
+    # TODO 1: Define get_input_args function within the file get_input_args.py
     # This function retrieves 3 Command Line Arugments from user as input from
     # the user running the program from a terminal window. This function returns
     # the collection of these command line arguments from the function call as
     # the variable in_arg
     in_arg = get_input_args()
 
+    # Access values of Argument 1 by printing it
+    print(f"************Argument 1= {in_arg.dir} ************")
     # Function that checks command line arguments using in_arg  
     check_command_line_arguments(in_arg)
 
