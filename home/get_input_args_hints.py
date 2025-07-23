@@ -47,6 +47,11 @@ def get_input_args():
     # Creates 3 command line arguments args.dir for path to images files,
     # args.arch which CNN model to use for classification, args.labels path to
     # text file with names of dogs.
+    
+    # '--dir': The name of the argument (users will type --dir when running the script)
+    # When the script runs, users can specify a custom directory like python script.py --dir /path/to/my_dog_photos
+    # args.dir == '/path/to/my_dog_photos' if specified by user 
+    # or let it use the default 'pet_images/' folder.
     parser.add_argument('--dir', type=str, default='pet_images/', 
                         help='path to folder of images')
     # TODO: 1a. EDIT parse.add_argument statements BELOW to add type & help for:
@@ -55,6 +60,10 @@ def get_input_args():
     parser.add_argument('--arch', default = 'vgg' )
     parser.add_argument('--dogfile', default = 'dognames.txt' )
 
+   #MSB --> parser.add_argument('--arch', type=str, default = 'vgg', help='the CNN model architecture')
+   #MSB --> parser.add_argument('--dogfile',type=str, default = 'dognames.txt', help='text file containing names of dog breeds' )
+
     # TODO: 1b. Replace None with parser.parse_args() parsed argument 
     # collection that you created with this function 
     return None
+  #MSB --> return parser.parse_args()
