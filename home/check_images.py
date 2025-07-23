@@ -3,8 +3,8 @@
 # */AIPND-revision/intropyproject-classify-pet-images/check_images.py
 #
 # TODO 0: Add your information below for Programmer & Date Created.                                                                             
-# PROGRAMMER: Arun Chavan
-# DATE CREATED: 25/02/2022                                 
+# PROGRAMMER: Manjeet Singh
+# DATE CREATED: 23/07/2025                                 
 # REVISED DATE: 
 # PURPOSE: Classifies pet images using a pretrained CNN model, compares these
 #          classifications to the true identity of the pets in the images, and
@@ -39,8 +39,14 @@ from print_results import print_results
 
 # Main program function defined below
 def main():
-    # DONE 0: Measures total program runtime by collecting start time
+    # TODO 0: Measures total program runtime by collecting start time
     start_time = time()
+
+    # Adding a delay by sleep(5) --> 5 sec delay added.
+    # Format of time is hh:mm:ss --> 0:0:59
+    
+    # normal runtime ~ 5 sec --> with delay 9/10 sec --> 0:0:10
+    #sleep(5) #** As of now I will deactive it for faster runtime 
     
     # DONE 1: Define get_input_args function within the file get_input_args.py
     # This function retrieves 3 Command Line Arugments from user as input from
@@ -123,7 +129,7 @@ def main():
     print("\n** Total Elapsed Runtime:",
           str(int((tot_time/3600)))+":"+str(int((tot_time%3600)/60))+":"
           +str(int((tot_time%3600)%60)) )
-    # O/P = ** Total Elapsed Runtime: 0:0:54
+    # O/P = ** Total Elapsed Runtime: 00:00:54
     
 
 # Call to main function to run the program
