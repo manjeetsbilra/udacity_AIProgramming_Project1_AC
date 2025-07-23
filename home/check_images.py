@@ -46,7 +46,7 @@ def main():
     # Format of time is hh:mm:ss --> 0:0:59
     
     # normal runtime ~ 5 sec --> with delay 9/10 sec --> 0:0:10
-    #sleep(5) #** As of now I will deactive it for faster runtime 
+    sleep(5) # 5 sec delay activated to see the time difference in the output
     
     # DONE 1: Define get_input_args function within the file get_input_args.py
     # This function retrieves 3 Command Line Arugments from user as input from
