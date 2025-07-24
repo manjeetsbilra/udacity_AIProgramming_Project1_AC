@@ -43,7 +43,9 @@ def get_pet_labels(image_dir):
          index 0 = pet image label (string)
     """
     # Creates list of files in directory
-    in_files = listdir(image_dir)
+    in_files = listdir(image_dir) # Ouput: in_files []
+    #listdir() function from os, which returns a list of the files in the directory
+    # Expected output: ['Boston_terrier_02259.jpg', 'Maine_Coon_0341.jpg']
     
     # Processes each of the files to create a dictionary where the key
     # is the filename and the value is the picture label (below).
@@ -58,9 +60,25 @@ def get_pet_labels(image_dir):
        # Skips file if starts with . (like .DS_Store of Mac OSX) because it 
        # isn't an pet image file
        if in_files[idx][0] != ".":
+      
+      #in_files = ['Boston_terrier_02259.jpg', '.DS_Store']
+
+      #in_files[0] = 'Boston_terrier_02259.jpg'
+      #in_files[1] = '.DS_Store'
+      #in_files[0][0] = 'B'
+      #in_files[1][0] = '.'   # starts with a dot --> These are hidden files which need to be prevented from reading
+      
            
            # Creates temporary label variable to hold pet label name extracted 
            pet_label = ""
+
+   #MSB --> pet_label = in_files[idx]                   ## Output : pet_label = "Boston_terrier_02259.jpg"
+   #MSB --> pet_label_lower = pet_label.lower()         ## Sets string to lower case letters
+   #MSB --> pet_label_splitted = pet_label.split("_")   ## pet_label_splitted = ['golden', 'retriever', '03421.jpg']
+   #MSB --> pet_label_alpha = pet_label.split("_")[0]         # Result: 'golden'
+            # for pet_name in pet_label_alpha:
+               #if pet_name.isalpha():
+                  #pet_label += pet_name
 
            # TODO: 2a. BELOW REPLACE pass with CODE that will process each 
            #          filename in the in_files list to extract the dog breed 
@@ -83,3 +101,4 @@ def get_pet_labels(image_dir):
     # TODO 2b. Replace None with the results_dic dictionary that you created
     # with this function
     return None
+#MSB --> return results_dic

@@ -61,7 +61,7 @@ def main():
     check_command_line_arguments(in_arg)
 
     
-    # DONE 2: Define get_pet_labels function within the file get_pet_labels.py
+    # TODO 2: Define get_pet_labels function within the file get_pet_labels.py
     # Once the get_pet_labels function has been defined replace 'None' 
     # in the function call with in_arg.dir  Once you have done the replacements
     # your function call should look like this: 
@@ -69,6 +69,7 @@ def main():
     # This function creates the results dictionary that contains the results, 
     # this dictionary is returned from the function call as the variable results
     results = get_pet_labels(in_arg.dir)
+#MSB --> results = get_pet_labels(in_arg.dir) ##Changed from None to in_arg.dir
 
     # Function that checks Pet Images in the results Dictionary using results    
     check_creating_pet_image_labels(results)

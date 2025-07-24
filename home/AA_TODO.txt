@@ -3,7 +3,7 @@ Program Outline
         Use Time Module to compute program runtime              
     Get program Inputs from the user (Page 7 & 8)       #Check_images.py, get_input_args.py     #commit:23/07/2025      #DONE
         Use command line arguments to get user inputs
-    Create Pet Images Labels (Page 9, 10 & 11)
+    Create Pet Images Labels (Page 9, 10 & 11)          #check_images.py, get_pet_labels.py     #commit:24/07/2025      #DONE
         Use the pet images filenames to create labels
     Store the pet image labels in a data structure (e.g. dictionary)
     Create Classifier Labels and Compare Labels (Page 12 & 13)
