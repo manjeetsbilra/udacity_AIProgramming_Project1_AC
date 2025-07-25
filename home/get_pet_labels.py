@@ -61,7 +61,7 @@ def get_pet_labels(image_dir):
             for words in splitted_label:
                 if words.isalpha():
                     pet_label += words + " "
-            pet_label = pet_label.strip()
+            pet_label = pet_label.strip() # Remove the white space before and after the pet_label;' boston terrier ' = 'boston terrier'
             result_dict[file_name] = [pet_label]
             # result_dict = {'Boston_Terrier_0341.jpg': ['boston terrier']}
             #{'Boston_terrier_02250.jpg': ['boston terrier'] where, key ('Boston_terrier_02250.jpg): Value ['boston terrier']}

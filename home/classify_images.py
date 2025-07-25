@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/classify_images.py
 #                                                                             
-# PROGRAMMER: Arun Chavan
-# DATE CREATED: 25/02/2022                                
+# PROGRAMMER: Manjeet Singh
+# DATE CREATED: 25/07/2025                              
 # REVISED DATE: 
 # PURPOSE: Create a function classify_images that uses the classifier function 
 #          to create the classifier labels and then compares the classifier 
@@ -65,19 +65,92 @@ def classify_images(images_dir, results_dic, model):
      Returns:
            None - results_dic is mutable data type so no return needed.         
     """
-    for key in results_dic:
+    for key in results_dic:          #results_dic = {'Boston_terrier_02250.jpg': ['boston terrier'], 'ZTxer_01120.jpg': ['ztxer'], 'Alex_5656.jpg': ['alex']}
         # get classifier labels
-        classifier_label = classifier(images_dir+key, model)
+        classifier_label = classifier(images_dir+key, model) # images_dir+key = 'pet_images/Boston_terrier_02250.jpg'
+        # images_dir = 'pet_images/' # folder where all images are stored
+        # key = 'Boston_terrier_02250.jpg'
+
         #lowercase and remove white spaces
-        classifier_label = classifier_label.lower().strip()        
+        classifier_label = classifier_label.lower().strip()  # string.lower() converts all characters to lowercase, strip() removes leading and trailing whitespace      
         
-        key_image_label = results_dic[key][0]
-        if key_image_label in classifier_label:            
-            results_dic[[key][0]].extend([classifier_label, 1])
+        key_image_label = results_dic[key][0] # Key = 'Boston_terrier_02250.jpg' and results_dic[key][0] = 'boston terrier'
+        # key_image_label = results_dic[key][0]
+        if key_image_label in classifier_label:
+            results_dic[key].extend([classifier_label, 1]) # extends --> (['boston terrier',1])
+          # results_dic[key] = ['boston terrier', 'boston terrier', 1]
+           # results_dic[key] = ['boston terrier', 'boston terrier', 1]
+           # my_list = [1, 2]
+           # my_list.extend([3, 4])  # Result: [1, 2, 3, 4]
+           # my_list.append([3, 4])  # Would result: [1, 2, [3, 4]]
         else:
-            results_dic[[key][0]].extend([classifier_label, 0])
+            #results_dic[[key][0]].extend([classifier_label, 0])
+            results_dic[key].extend([classifier_label, 0])
         
-        
+'''
+      MSB --> Logic:
+
+# Initialize with some parameters for dictionary
+# Defining lists to populate dictionary
+filenames = ["Beagle_01141.jpg", "Beagle_01125.jpg", "skunk_029.jpg"] # key as filename of results_dic
+pet_labels = ["beagle", "beagle", "skunk"] # [0] of results_dic
+classifier_labels = ["walker hound, walker foxhound", "beagle",
+                     "skunk, polecat, wood pussy"] # [1] of results_dic
+pet_label_classifier_label_match = [0, 1, 1] # [2] of results_dic
+pet_label_is_dog = [1, 1, 0] # [3] of results_dic
+classifier_label_is_dog = [0, 1, 1] # [4] of results_dic
+
+# Create empty dictionary
+results_dic = {}
+
+# Populate dictionary with both labels & indicates if they match (idx 2)
+for idx in range(len(filenames)):
+    if filenames[idx] not in results_dic:
+        results_dic[filenames[idx]] = [
+            pet_labels[idx],
+            classifier_labels[idx],
+            pet_label_classifier_label_match[idx],
+            pet_label_is_dog[idx],
+            classifier_label_is_dog[idx]
+        ]
+
+print(f"This is results_dic = {results_dic}", "\n")
+
+# Print details for each key
+for key in results_dic:
+    print(f"Analyzing {key}: {results_dic[key]}")
+    print(f"  [2] Breed match: {results_dic[key][2]}")
+    print(f"  [3] Pet is dog: {results_dic[key][3]}")
+    print(f"  [4] Classifier is dog: {results_dic[key][4]}")
+    print(f"  Sum [2:]: {sum(results_dic[key][2:])}")
+    print(f"  Sum [3:]: {sum(results_dic[key][3:])}")
+    print()
+
+print("=" * 60)
+print("CLASSIFICATION RESULTS:")
+print("=" * 60)
+
+for key in results_dic:
+    # Use elif to ensure only one condition is met per key
+    if sum(results_dic[key][2:]) == 3:
+        print(f"{key}: *Breed Match* *IS dog* - Perfect match!")
+
+    elif (sum(results_dic[key][3:]) == 0) and (results_dic[key][2] == 1):
+        print(f"{key}: *Breed Match* *NOT a Dog* - Correct non-dog classification")
+
+    elif sum(results_dic[key][3:]) == 2 and (results_dic[key][2] == 0):
+        print(f"{key}: *Breed Mis-match* *IS Dog* - Wrong breed classification by classifier!")
+
+    elif sum(results_dic[key][2:4]) == 0 and results_dic[key][4] == 1:
+        print(f"{key}: *Breed Mis-match* *Wrong Classification* - Classifier error")
+
+    else:
+        print(f"{key}: Other classification case")
+        print(f"  Details: breed_match={results_dic[key][2]}, pet_is_dog={results_dic[key][3]}, classifier_is_dog={results_dic[key][4]}")
+
+    print()
+       
+         '''
     
     
         

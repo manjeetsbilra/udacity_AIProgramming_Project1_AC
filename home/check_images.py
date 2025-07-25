@@ -75,7 +75,7 @@ def main():
     check_creating_pet_image_labels(results)
 
 
-    # DONE 3: Define classify_images function within the file classiy_images.py
+    # TODO 3: Define classify_images function within the file classiy_images.py
     # Once the classify_images function has been defined replace first 'None' 
     # in the function call with in_arg.dir and replace the last 'None' in the
     # function call with in_arg.arch  Once you have done the replacements your
@@ -84,7 +84,13 @@ def main():
     # Creates Classifier Labels with classifier function, Compares Labels, 
     # and adds these results to the results dictionary - results
     classify_images(in_arg.dir, results, in_arg.arch)
-
+#MSB --> The function call (takes 3 arguments):
+#             -The Image Folder as images_dir within classify_images function 
+#              and as in_arg.dir for function call within main.
+#             -The results dictionary as results_dic within classify_images 
+#              function and results for the functin call within main.
+#             -The CNN model architecture as model within classify_images function
+#              and in_arg.arch for the function call within main.
     # Function that checks Results Dictionary using results    
     check_classifying_images(results)    
 
