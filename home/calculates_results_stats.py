@@ -73,6 +73,7 @@ def calculates_results_stats(results_dic):
     # results_stats_dic = dict()
     results_stats_dic = {}
 
+    #results_stats_dic['key']       = 0 (Here '0' represent the value of 'key' in results_stats_dic)
     results_stats_dic['n_dogs_img'] = 0          # number of dog images i.e. length of results_dic dictionary
     results_stats_dic['n_match'] = 0             # number of matches between pet & classifier labels (labels Match)
     results_stats_dic['n_correct_dogs'] = 0      # number of correctly classified dog images
@@ -113,7 +114,7 @@ def calculates_results_stats(results_dic):
     # using the counters from above.
     
     # calculates number of total images
-    results_stats_dic['n_images'] = len(results_dic) # Why n_images is taken as key?
+    results_stats_dic['n_images'] = len(results_dic) # Again, 'n_images' is key with value = [40]
 
     # calculates number of not-a-dog images using - images & dog images counts
     results_stats_dic['n_notdogs_img'] = (results_stats_dic['n_images'] - 
@@ -153,6 +154,10 @@ def calculates_results_stats(results_dic):
                                                 results_stats_dic['n_notdogs_img']) * 100.0
     else:
         results_stats_dic['pct_correct_notdogs'] = 0.0
+
+    # You can print all sums 'n_' and percentage 'pct_' using following or you can define a function --> check 'check_images.py' todo: 5
+    # for key, value in results_stats_dic.items():
+    #   print(f"{key}: {value}")
 
         
     # TODO 5f. REPLACE None with the results_stats_dic dictionary that you 

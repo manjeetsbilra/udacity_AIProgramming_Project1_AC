@@ -117,6 +117,29 @@ def main():
     # Dictionary - called results_stats
     results_stats = calculates_results_stats(results)
 
+    def print_results_stats(results_stats_dic):
+        print("----- Results Summary -----\n")
+
+    # Print counts first (keys starting with 'n_')
+        print("Counts:")
+        for key, value in results_stats_dic.items():
+            if key.startswith('n_'):
+                print(f"  {key}: {value}")
+        print()
+
+    # Print percentages (keys starting with 'pct_')
+        print("Percentages:")
+        for key, value in results_stats_dic.items():
+            if key.startswith('pct_'):
+                print(f"  {key}: {value:.2f}%")
+        print("--------------------------")
+
+    #Prints the stats 
+    print_results_stats(results_stats)
+
+
+
+
     # Function that checks Results Statistics Dictionary using results_stats
     check_calculating_results(results, results_stats)
 
