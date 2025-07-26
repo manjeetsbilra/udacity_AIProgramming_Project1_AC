@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/get_pet_labels.py
 #                                                                             
-# PROGRAMMER: Arun Chavan
-# DATE CREATED: 25/02/2022                                
+# PROGRAMMER: Manjeet Singh
+# DATE CREATED: 24/07/2025                                
 # REVISED DATE: 
 # PURPOSE: Create the function get_pet_labels that creates the pet labels from 
 #          the image's filename. This function inputs: 
@@ -24,6 +24,7 @@ from os import listdir
 #       with this function
 # 
 
+
 def get_pet_labels(image_dir):
     """
     Creates a dictionary of pet labels (results_dic) based upon the filenames 
@@ -43,23 +44,31 @@ def get_pet_labels(image_dir):
     """
     # Replace None with the results_dic dictionary that you created with this
     # function
-    result_dict = {}   
+    result_dict = {}   # Create an empty ditionary to store (key=filename, value=pet_label)
     
     
-    filename_list = listdir(image_dir)
+    filename_list = listdir(image_dir) # listdir returns a list 
+    # Output: filename_list ['Boston_terrier_02259.jpg', 'Maine_Coon_0341.jpg']
   
     for file_name in filename_list:
         # check if file names are not hidden
-        if file_name not in result_dict and file_name[0] !=".":
-            lowercase_label = file_name.lower()            
-            lowercase_label = lowercase_label.split("_")
+        if file_name not in result_dict and file_name[0] !=".": # file_name [0] = '.' ('.DS_Store') or 'B' in ('Boston_terrier_02259.jpg')
+            #lowercase_label = file_name.lower()            
+           # lowercase_label = lowercase_label.split("_")
+            splitted_label = file_name.lower().split("_") # ['golden', 'retriever', '03421.jpg']
+            #pet_name_label = splitted_label[0] # ['golden'retriever']
             pet_label = ""
-            for word in lowercase_label:
-                if word.isalpha():
-                    pet_label += word + " "
-            result_dict[file_name] = [pet_label.strip()]
+            for words in splitted_label:
+                if words.isalpha():
+                    pet_label += words + " "
+            pet_label = pet_label.strip() # Remove the white space before and after the pet_label;' boston terrier ' = 'boston terrier'
+            result_dict[file_name] = [pet_label]
+            # result_dict = {'Boston_Terrier_0341.jpg': ['boston terrier']}
+            #{'Boston_terrier_02250.jpg': ['boston terrier'] where, key ('Boston_terrier_02250.jpg): Value ['boston terrier']}
+            
         else:
             print("Duplicate File in directory {}".format(file_name))
+            
     
     return result_dict
-
+#print(get_pet_labels("pet_images/"))

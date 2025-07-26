@@ -61,7 +61,7 @@ def main():
     check_command_line_arguments(in_arg)
 
     
-    # DONE 2: Define get_pet_labels function within the file get_pet_labels.py
+    # TODO 2: Define get_pet_labels function within the file get_pet_labels.py
     # Once the get_pet_labels function has been defined replace 'None' 
     # in the function call with in_arg.dir  Once you have done the replacements
     # your function call should look like this: 
@@ -69,12 +69,13 @@ def main():
     # This function creates the results dictionary that contains the results, 
     # this dictionary is returned from the function call as the variable results
     results = get_pet_labels(in_arg.dir)
+#MSB --> results = get_pet_labels(in_arg.dir) ##Changed from None to in_arg.dir
 
     # Function that checks Pet Images in the results Dictionary using results    
     check_creating_pet_image_labels(results)
 
 
-    # DONE 3: Define classify_images function within the file classiy_images.py
+    # TODO 3: Define classify_images function within the file classiy_images.py
     # Once the classify_images function has been defined replace first 'None' 
     # in the function call with in_arg.dir and replace the last 'None' in the
     # function call with in_arg.arch  Once you have done the replacements your
@@ -83,12 +84,18 @@ def main():
     # Creates Classifier Labels with classifier function, Compares Labels, 
     # and adds these results to the results dictionary - results
     classify_images(in_arg.dir, results, in_arg.arch)
-
+#MSB --> The function call (takes 3 arguments):
+#             -The Image Folder as images_dir within classify_images function 
+#              and as in_arg.dir for function call within main.
+#             -The results dictionary as results_dic within classify_images 
+#              function and results for the functin call within main.
+#             -The CNN model architecture as model within classify_images function
+#              and in_arg.arch for the function call within main.
     # Function that checks Results Dictionary using results    
     check_classifying_images(results)    
 
     
-    # DONE 4: Define adjust_results4_isadog function within the file adjust_results4_isadog.py
+    # TODO 4: Define adjust_results4_isadog function within the file adjust_results4_isadog.py
     # Once the adjust_results4_isadog function has been defined replace 'None' 
     # in the function call with in_arg.dogfile  Once you have done the 
     # replacements your function call should look like this: 

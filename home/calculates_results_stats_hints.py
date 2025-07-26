@@ -75,11 +75,11 @@ def calculates_results_stats(results_dic):
     
     # Sets all counters to initial values of zero so that they can 
     # be incremented while processing through the images in results_dic 
-    results_stats_dic['n_dogs_img'] = 0
-    results_stats_dic['n_match'] = 0
-    results_stats_dic['n_correct_dogs'] = 0
-    results_stats_dic['n_correct_notdogs'] = 0
-    results_stats_dic['n_correct_breed'] = 0       
+    results_stats_dic['n_dogs_img'] = 0          # number of dog images i.e. length of results_dic dictionary
+    results_stats_dic['n_match'] = 0             # number of matches between pet & classifier labels
+    results_stats_dic['n_correct_dogs'] = 0      # number of correctly classified dog images
+    results_stats_dic['n_correct_notdogs'] = 0   # number of correctly classified 'not dog' images
+    results_stats_dic['n_correct_breed'] = 0     # number of correctly classified dog breeds
     
     # process through the results dictionary
     for key in results_dic:

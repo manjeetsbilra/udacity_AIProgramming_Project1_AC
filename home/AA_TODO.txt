@@ -1,19 +1,24 @@
 Program Outline
-    Time your program (Page 5 & 6)                          # Check_images.py                   #commit:23/07/2025      # DONE    
+    Time your program (Page 5 & 6)                                      # Check_images.py              #commit:23/07/2025      # DONE    
         Use Time Module to compute program runtime              
-    Get program Inputs from the user (Page 7 & 8)       #Check_images.py, get_input_args.py     #commit:23/07/2025      #DONE
+    Get program Inputs from the user (Page 7 & 8)                       # get_input_args.py            #commit:23/07/2025      #DONE
         Use command line arguments to get user inputs
-    Create Pet Images Labels (Page 9, 10 & 11)
+    Create Pet Images Labels (Page 9, 10 & 11)                          # get_pet_labels.py            #commit:24/07/2025      #DONE
         Use the pet images filenames to create labels
     Store the pet image labels in a data structure (e.g. dictionary)
-    Create Classifier Labels and Compare Labels (Page 12 & 13)
-        Use the Classifier function to classify the images and create the classifier labels
-    Compare Classifier Labels to Pet Image Labels
-    Store Pet Labels, Classifier Labels, and their comparison in a complex data structure (e.g. dictionary of lists)
-    Classifying Labels as "Dogs" or "Not Dogs" (Page 14 & 15)
-    Classify all Labels as "Dogs" or "Not Dogs" using dognames.txt file
-    Store new classifications in the complex data structure (e.g. dictionary of lists)
-    Calculate the Results (Page 16 & 17)
-        Use Labels and their classifications to determine how well the algorithm worked on classifying images
+    Create Classifier Labels and Compare Labels (Page 12 & 13)          # classify_images.py            #commit:25/07/2025     #DONE
+        Use the Classifier function to classify the images and create 
+        the classifier labels Compare Classifier Labels to 
+        Pet Image Labels Store Pet Labels, Classifier Labels, and 
+        their comparison in a complex data structure 
+        (e.g. dictionary of lists)
+    Classifying Labels as "Dogs" or "Not Dogs" (Page 14 & 15)           # adjust_results4_isadog.py     #commit:26/07/2025     #DONE
+    Classify all Labels as "Dogs" or "Not Dogs" using dognames.txt file                         
+    Store new classifications in the complex data structure 
+    (e.g. dictionary of lists)
+    Calculate the Results (Page 16 & 17)                                # calculates_results_stats.py   #commit:26/07/2025      #DONE
+        Use Labels and their classifications to determine 
+        how well the algorithm worked on classifying images
     Print the Results (Page 18 & 19)
-You will need to repeat these tasks for each of the three image classification algorithms that are provided to you.
+You will need to repeat these tasks for each of the three image 
+classification algorithms that are provided to you.
