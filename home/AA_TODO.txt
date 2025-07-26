@@ -16,7 +16,7 @@ Program Outline
     Classify all Labels as "Dogs" or "Not Dogs" using dognames.txt file                         
     Store new classifications in the complex data structure 
     (e.g. dictionary of lists)
-    Calculate the Results (Page 16 & 17)
+    Calculate the Results (Page 16 & 17)                                # calculates_results_stats.py   #commit:26/07/2025      #DONE
         Use Labels and their classifications to determine 
         how well the algorithm worked on classifying images
     Print the Results (Page 18 & 19)
