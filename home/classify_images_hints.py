@@ -80,6 +80,7 @@ def classify_images(images_dir, results_dic, model):
        # inputs: path + filename  and  model, returns model_label 
        # as classifier label
        model_label = ""
+#MSB --> model_label = classifier(images_dir + key, model) ; return from the classifier : imagenet_classes_dict[pred_idx]
 
        # TODO: 3b. BELOW REPLACE pass with CODE to process the model_label to 
        #           convert all characters within model_label to lowercase 
@@ -90,10 +91,12 @@ def classify_images(images_dir, results_dic, model):
        # Processes the results so they can be compared with pet image labels
        # set labels to lowercase (lower) and stripping off whitespace(strip)
        pass
-       # x = model_label.lower().strip(" ", "")
+       # classifier_label = classifier_label.lower().strip()
               
        # defines truth as pet image label 
-       truth = results_dic[key][0]
+       truth = results_dic[key][0]   # Image label from results_dic for the key
+       # where key = results_dic[key][0] --> 'Boston_terrier_02250.jpg'
+       ## truth = 'boston terrier' for the key 'Boston_terrier_02250.jpg'
 
        # TODO: 3c. REPLACE pass BELOW with CODE that uses the extend list function
        #           to add the classifier label (model_label) and the value of
@@ -105,6 +108,7 @@ def classify_images(images_dir, results_dic, model):
        # as an exact match to on of the terms in the list - then they are added to 
        # results_dic as an exact match(1) using extend list function
        if truth in model_label:
+         #  results_dic[key].extend([classifier_label, 1])
            pass
 
        # TODO: 3d. REPLACE pass BELOW with CODE that uses the extend list function

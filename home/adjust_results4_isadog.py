@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/adjust_results4_isadog.py
 #                                                                             
-# PROGRAMMER: Arun Chavan
-# DATE CREATED: 25/02/2022                                 
+# PROGRAMMER: Manjeet Singh
+# DATE CREATED: 26/07/2025                                 
 # REVISED DATE: 
 # PURPOSE: Create a function adjust_results4_isadog that adjusts the results 
 #          dictionary to indicate whether or not the pet image label is of-a-dog, 
@@ -67,27 +67,55 @@ def adjust_results4_isadog(results_dic, dogfile):
     Returns:
            None - results_dic is mutable data type so no return needed.
     """           
-    dogname_dic = dict()
-    
-    with open (dogfile, "r") as f:
-        line = f.readline()
+    #dogname_dic = dict() 
+    dogname_dic = {} # Will store dog names as keys in form of strings and 1 as values
+    with open(dogfile, "r") as file:
+        for line in file:
+            line = line.lower().strip() # Removes leading and trailing whitespace characters
+            if line and line not in dogname_dic:
+                dogname_dic[line] = 1 # Add dog name to dictionary with value 1
+            else:
+                print("Duplicate names found in 'dognames.txt' : ", line) # Increment the count for the dog name
+
+    '''
+        line = file.readline()
+  
+    #with open (dogfile, "r") as f:
+        #line = f.readline()
         
         while line != "":
-            line = line.rstrip()
+        #   line = line.strip()  # Removes leading and trailing whitespace characters
+            line = line.lower().rstrip()
             if line not in dogname_dic:
                 dogname_dic[line] = 1            
-            line = f.readline()
-        
-    for key in results_dic:
-        if results_dic[key][0] in dogname_dic:
-            if results_dic[key][1] in dogname_dic:
-                results_dic[key].extend([1, 1])
+            #line = f.readline()
+            line = file.readline() # Read the next line in the file; if not while loop will only read the first line
+    '''    
+    
+    ''' 
+    for key in results_dic: # You write this when you want to iterate through the keys in results_dic. 
+        if results_dic[key][0] in dogname_dic:        # results_dic[key][0] is value of 'image label' = 'boston terrier' 
+            if results_dic[key][1] in dogname_dic:    # results_dic[key][1] is value of 'classifier label' = 'boston terrier'
+                results_dic[key].extend([1, 1])       # Perfect match, both labels are dogs
             else:
-                results_dic[key].extend([1, 0])
+                results_dic[key].extend([1, 0])       # As this is else from main if considering that Image/pet label is a dog but classifier label is not a dog       
         else:
-            if results_dic[key][1] in dogname_dic:
-                results_dic[key].extend([0, 1])
+            if results_dic[key][1] in dogname_dic:    # results_dic[key][1] is value of 'classifier label' = 'boston terrier'
+                results_dic[key].extend([0, 1])       # As this is else from main if considering that Image/pet label is not a dog
             else:
-                results_dic[key].extend([0, 0])
-                
-       
+                results_dic[key].extend([0, 0])       # Neither label is a dog, so both are 0
+    '''            
+    for key in results_dic:
+        pet_label = results_dic[key][0]
+        classifier_label = results_dic[key][1]
+
+        if pet_label in dogname_dic:
+            if classifier_label in dogname_dic:
+                results_dic[key].extend([1, 1])     # Perfect match, both labels are dogs
+            else: 
+                results_dic[key].extend([1, 0])     # Only Image label is dog
+        else:
+            if classifier_label in dogname_dic:
+                results_dic[key].extend([0, 1])     # Only classifier label is dog
+            else:
+                results_dic[key].extend([0, 0])     # neither are dogs 

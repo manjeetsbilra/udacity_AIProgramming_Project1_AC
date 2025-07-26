@@ -95,7 +95,7 @@ def main():
     check_classifying_images(results)    
 
     
-    # DONE 4: Define adjust_results4_isadog function within the file adjust_results4_isadog.py
+    # TODO 4: Define adjust_results4_isadog function within the file adjust_results4_isadog.py
     # Once the adjust_results4_isadog function has been defined replace 'None' 
     # in the function call with in_arg.dogfile  Once you have done the 
     # replacements your function call should look like this: 
